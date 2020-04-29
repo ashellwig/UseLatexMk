@@ -1,5 +1,4 @@
-# UseLatexMk.cmake is a CMake module to build Latex documents
-# from CMake.
+# UseLatexMk.cmake is a CMake module to build Latex documents from CMake.
 #
 # add_latex_document(SOURCE texsource
 #                    [TARGET target]
@@ -41,66 +40,7 @@
 #   Set this option to an install directory to create an installation rule for this document.
 # BUILD_ON_INSTALL
 #   Set this option, if you want to trigger a build of this document during installation.
-#
-# Furthermore, UseLatexMk defines a CMake target clean_latex which cleans the build tree from
-# all PDF output and all auxiliary files. Note, that (at least for the Unix Makefiles generator)
-# it is not possible to connect this process with the builtin clean target.
-#
-# Please note the following security restriction:
-#
-# UseLatexMk relies on latexmk separating input and output directory correctly.
-# This includes using an absolute path for the output directory. On some TeX
-# systems this requires the disabling of a security measure by setting `openout_any = a`.
-# From the latexmk documentation:
-#
-# Commonly, the directory specified for output files is a subdirectory of the current working direc-
-# tory. However, if you specify some other directory, e.g., "/tmp/foo" or "../output", be aware that
-# this could cause problems, e.g., with makeindex or bibtex. This is because modern versions of
-# these programs, by default, will refuse to work when they find that they are asked to write to a file
-# in a directory that appears not to be the current working directory or one of its subdirectories. This
-# is part of security measures by the whole TeX system that try to prevent malicious or errant TeX
-# documents from incorrectly messing with a user’s files. If for $out_dir or $aux_dir you really do
-# need to specify an absolute pathname (e.g., "/tmp/foo") or a path (e.g., "../output") that includes a
-# higher-level directory, and you need to use makeindex or bibtex, then you need to disable the secu-
-# rity measures (and assume any risks). One way of doing this is to temporarily set an operating
-# system environment variable openout_any to "a" (as in "all"), to override the default "paranoid"
-# setting.
-#
-# UseLatexMk.cmake allows to reenable the TeX security measure by setting LATEXMK_PARANOID to TRUE
-# through cmake -D, but it is not guaranteed to work correctly in that case.
-#
-# For further informations, visit https://github.com/dokempf/UseLatexMk
-#
-#
-# Copyright (c) 2017, Dominic Kempf, Steffen Müthing
-#
-# All rights reserved.
-#
-# Redistribution and use in source and binary forms, with or without modification,
-# are permitted provided that the following conditions are met:
-#
-# * Redistributions of source code must retain the above copyright notice, this
-#   list of conditions and the following disclaimer.
-#
-# * Redistributions in binary form must reproduce the above copyright notice, this
-#   list of conditions and the following disclaimer in the documentation and/or
-#   other materials provided with the distribution.
-#
-# * Neither the name of the Universität Heidelberg nor the names of its
-#   contributors may be used to endorse or promote products derived from this
-#   software without specific prior written permission.
-#
-# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-# ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-# WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-# DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
-# ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-# (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-# LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
-# ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-# SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#
+
 
 # Find LATEX and LatexMk
 find_package(LATEX)
